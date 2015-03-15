@@ -10,5 +10,8 @@ iron:router
 nemo64:bootstrap
 ian:accounts-ui-bootstrap-3
 pcuci:bootcards
-natestrauser:font-awesome
+manuelschoebel:wait-on-lib
+viacdn:font-awesome
+viacdn:raphael
 
+viacdn:morris

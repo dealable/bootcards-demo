@@ -1,3 +1,75 @@
 <template name="MasterLayout">
+  {{> desktopMenu }}
+  {{> mobileMenu }}
   {{> yield}}
+  <footer>
+    {{> yield "footer"}}
+  </footer>
+</template>
+
+<template name="footer">
+
+	<!-- fixed tabbed footer -->
+	<div class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container">
+			<div class="bootcards-desktop-footer clearfix">
+				<p class="pull-left">Bootcards v1.1.0</p>
+			</div>
+			<div class="btn-group">
+				<a href="dashboard.html" class="btn btn-default" data-pjax="#main" data-title="Customers">
+					<i class="fa fa-2x fa-dashboard"></i>
+					Dashboard
+				</a>          
+				<a href="companies.html" class="btn btn-default" data-pjax="#main" data-title="Companies">
+					<i class="fa fa-2x fa-building-o"></i>
+					Companies
+				</a>          
+				<a href="contacts.html" class="btn btn-default active" data-pjax="#main" data-title="Contacts">
+					<i class="fa fa-2x fa-users"></i>
+					Contacts
+				</a>          
+				<a href="notes.html" class="btn btn-default" data-pjax="#main" data-title="Notes">
+					<i class="fa fa-2x fa-clipboard"></i>
+					Notes
+				</a>          
+				<a href="charts.html" class="btn btn-default" data-pjax="#main" data-title="Charts">
+					<i class="fa fa-2x fa-bar-chart-o"></i>
+					Charts
+				</a>          
+				<a href="settings.html" class="btn btn-default" data-pjax="#main" data-title="Settings">
+					<i class="fa fa-2x fa-gears"></i>
+					Settings
+				</a>          
+			</div>
+		</div>
+	</div> 
+
+	<!--modals-->
+	<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
+		</div>
+	</div>
+  <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="docsModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    //highlight first list group option (if non active yet)
+    if ( $('.list-group a.active').length === 0 ) {
+      $('.list-group a').first().addClass('active');
+    }
+
+    bootcards.init( {
+        offCanvasHideOnMainClick : true,
+        offCanvasBackdrop : true,
+        enableTabletPortraitMode : true,
+        disableRubberBanding : true,
+        disableBreakoutSelector : 'a.no-break-out'
+      });
+
+  </script>
+
 </template>
